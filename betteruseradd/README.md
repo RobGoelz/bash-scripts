@@ -1,6 +1,6 @@
 # bash-scripts
 
-This repository contains bash scripts for various functions.
+This directory contains a script to more easily add a user to a system, including setting the user password.
 
 3-27-2016: Added simple useradd script, without conditional logic/input value checks. Use at your own risk.
 
