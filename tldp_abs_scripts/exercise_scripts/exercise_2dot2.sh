@@ -3,16 +3,23 @@
 # Script saves this information to a log file in ~/.
 
 HOST=$HOSTNAME
-echo "Displaying current system information"
-echo "Date and time is:"
-date | tee ~/$HOST.status.$(date '+%F')
-echo " " >> ~/$HOST.status.$(date '+%F')
+LOG_PATH=~/$HOST.status.$(date '+%F_%T').log
 
+echo "Displaying current system information" | tee -a $LOG_PATH 
 
-echo "Logged in users"
-who -u | tee ~/$HOST.status.$(date '+%F')
+printf '\n' | tee -a $LOG_PATH 
 
-echo "Hostname is:"
-hostname | tee ~/$HOST.status.$(date '+%F')
+echo "Date and time is:" | tee -a $LOG_PATH
+date | tee -a $LOG_PATH
+
+printf '\n' | tee -a $LOG_PATH
+
+echo "Logged in users" | tee -a $LOG_PATH
+who -u | tee -a $LOG_PATH
+
+printf '\n' | tee -a $LOG_PATH
+
+echo "Hostname is:" | tee -a $LOG_PATH
+hostname | tee -a $LOG_PATH
 
 exit 0
